@@ -3,7 +3,7 @@ const indexOrderedList = document.getElementById('index');
 
 const links = [
     {
-      label: "Week1 notes",
+      label: "Week1",
       url: "content/week1/index.html"
     }
 ]
