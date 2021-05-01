@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 2 Notes & Excercices</title>
+    </head>
+    <body>
+        <h1>Week 2 Notes</h1> 
+        <h2>Syntax</h2>
+        <p>
+            JavaScript does not require semicolon. JavaScript interpreters uses Automatic Semicolon Insertion, 
+            which inserts a semicolon for you. Also, our code does not need to be written in different lines. 
+            It can all be written in one line. However, it is best practice to write every code statement in a 
+            different line with a semicolon to avoid compiling errors that might occur and for readability. 
+        </p>
+        <p>
+            Blocks do not need a semicolon. 
+        </p>
+        <h2>Variable Declaration</h2>
+        <p>
+            ES6 states that it is best practice to use let and const when declaring variables
+        </p>
+        <p>
+            When creating a const variable the variable becomes immutable, if the datatype is a primitive 
+            datatype. Otherwise the data inside the variable or object can be mutable, but the datatype of 
+            the variable cannot be changed. 
+        </p>
+        <h2>Scope</h2>
+        <p>
+            Let and const have block scope. 
+        </p>
+        <p>
+            Var has global scope.
+        </p>
+        <p>
+            It is best practice to use variables with local scope to avoid overwriting data unintentionally  
+            that has global scope. We should keep at minimum our global variables to avoid this issue. 
+        </p>
+        <h2>Direct assignment and Assignment by reference</h2>
+        <p>
+            When you assign a primitive type variable to another variable, the value is copied over.  
+            Each variable value is independent of the other.  
+        </p>
+        <p>
+            When you assign a non-primitive type variable to another non-primitive type variable a reference  
+            to the other variable’s value is passed. Any changes made to any of these variables will change  
+            the same value that both variables are referencing.
+        </p>
+        <h1>Symbols </h1>
+        <p>
+            Symbols are a new primitive data type introduced in ES6. Their main purpose is to create unique keys  
+            for objects. For example, if you are using, you are not sure of the keys of be object and need to add 
+            a key value pair, you can create a symbol to represent the key. That way the values of the object do  
+            not overwrite. 
+        </p>
+        <h1>Memory Leaks</h1>
+        <p>
+            Most modern programming language, including JavaScript, employ various dynamic memory management   
+            techniques such as garbage collection, which is the process of automatically removing items from 
+            memory that are no longer required by the program. 
+        </p>
+        <p>
+            Sets that use primitive data use garbage collection. When non primitive objects are stored in a set, 
+            memory leaks can happen. WeakSet() solves that problem by clearing the memory of any object whose 
+            the last reference to the object has been deleted. WeakMap() do the same thing. 
+        </p>
+
+        <h1>Week 2 Excercices</h1> 
+        <h2>Ninja Quiz</h2>
+        <p>The excercices on the reading are asking me to make updates on the code of a website</p>
+        <p><a href="../ninja Website/quizNinja.html">Link to the Ninja Quiz website</a></p>
+        <br>
+        <br>
+        <a href='index.html' target='_self'><-Back to Week 2 Index</a>
+    </body>
+</html>
