@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 2 Notes & Excercices</title>
+        <link rel="stylesheet" href="../styles/code.css">
+
+    </head>
+    <body>
+        <h1>Week 3 Notes</h1> 
+        <h2>This </h2>
+        <p>
+            In JavaScript the value of “this” is defined at runtime. 
+            If “this” is used outside of an object it will reference 
+            the global object “Window” of the browser in a n non-strict mode. 
+            On a strict mode (Adding the “use strict” at the top of the script) 
+            this scenario will cause an error instead. Most of the time is desired that 
+            this only is used in objects and that it triggers an error if is used outside of an object. 
+        </p>
+        <pre>
+            <code>
+function makeUser() { 
+    return {
+        name: &#x22;John&#x22;,
+        ref: this
+    };
+    };
+
+    let user = makeUser();
+
+    alert( user.ref.name );  // What&#x27;s the result?
+    
+    //When makeUser is called, the value of this is undefined because there is not an object that 
+    //defines the context of makeUser.  
+    //In that case the user is: 
+    
+
+    {
+        name: &#x22;John&#x22;,
+        ref: undefined
+    };
+
+    //In this line:
+
+    alert( user.ref.name )
+
+    //ref is undefined, and we cannot grab the value of the name. 
+            </code>
+        </pre>
+            
+    
+        <h2>Objects in javascript</h2>
+        <p>
+            When you create an object and the keys of the object will have the same name as the variable that is
+             holding the value then you can do this. 
+        </p>
+        <pre>
+            <code>
+const name = &#x27;Iron Man&#x27;;
+const realName = &#x27;Tony Stark&#x27;;
+
+// long way
+const ironMan = { name: name, realName: realName };
+// short ES6 way
+const ironMan = { name, realName };
+
+When defining the keys and values, you can do it in a dynamic way. 
+
+function getHulkPhrase(){
+    return &#x27;Hulk  Smash!&#x27; ;
+
+}
+
+const hulk = { 
+name: &#x27;Hulk&#x27;,
+    [&#x27;catch&#x27; + &#x27;Phrase&#x27;]: getHulkPhrase()
+};
+
+// You end up with 
+
+{ 
+name: &#x27;Hulk&#x27;,
+    catchPhrase: &#x27;Hulk  Smash!&#x27; 
+};
+            </code>
+        </pre>
+        <h2>Objects are copied by reference</h2>
+        <pre>
+            <code>
+//If I say;
+
+Let myHero = hulk;
+
+//myHero will point to the data that the hulk variable was pointing to.
+            </code>
+        </pre>
+        <p>
+            We can use objects to create namespaces. That way we do not overload function or variables with the 
+            same name. 
+        </p>
+        <h1>Week 3 Excercices</h1> 
+        <h2>Ninja Quiz</h2>
+        <p>The excercices on the reading are asking me to make updates on the code of a website</p>
+        <p><a href="../ninja Website/quizNinja.html">Link to the Ninja Quiz website</a></p>
+        <br>
+        <br>
+        <a href='index.html' target='_self'><-Back to Week 3 Index</a>
+    </body>
+</html>
