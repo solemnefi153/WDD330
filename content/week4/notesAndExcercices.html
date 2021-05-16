@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 4 Notes & Excercices</title>
+        <link rel="stylesheet" href="../styles/code.css">
+
+    </head>
+    <body>
+        <h1>Week 4 Notes</h1> 
+
+        <h2>Forms </h2>
+        <h3>Finding input elements</h3>
+        <p>You can find an input element in the form using the name attribute</p>
+        <pre>
+            <code>
+    //Store the first form element found in the DOM and store it in the form variable 
+    const form = document.forms[0];
+    
+    //Find the input/inputs in the form that have a value of searchInput for the name property 
+    const input = form.searchInput;
+    
+    //or 
+    
+    const input = form[&#x27;searchInput&#x27;]
+            </code>
+        </pre>
+        <h3>Resetting the form</h3>
+        <p>To reset the form, you can use the form.reset() function. This </p>
+        <h2>Object Oriented Programming</h2>
+        <h3>Object literal notation: </h3>
+        <pre>
+            <code>
+    const dice = {
+        sides: 6,
+        roll() {
+            return Math.floor(this.sides * Math.random() + 1)
+        }
+    }
+            </code>
+        </pre>
+        <h3>Object construct function: </h3>
+        <pre>
+            <code>
+    const Dice = function(sides=6){
+        this.sides = sides;
+        this.roll = function() {
+            return Math.floor(this.sides * Math.random() + 1)
+        }
+    }
+            </code>
+        </pre>
+        <p>This function can be interpreted as an object template when using the new keyword </p>
+        <pre>
+            <code>
+    const redDice = new Dice();
+    &#x3C;&#x3C; Dice { sides: 6, roll: [Function] }
+            </code>
+        </pre>
+        <h3>ES6 Class Declarations:</h3>
+        <pre>
+            <code>
+        class Dice {
+            constructor(sides=6) {
+                this.sides = sides;
+            }
+            roll() {
+                return Math.floor(this.sides * Math.random() + 1)
+            }
+        }
+            </code>
+        </pre>
+        <h3>Public and Private Methods</h3>
+        <p>
+            By default methods and properties in a class are public in JavaScript. There is not a public /
+            private keyword that can make properties or functions private or public. However, we can take 
+            advantage of the scope of functions to make variables or functions only available to the function 
+            itself. 
+        </p>
+        <pre>
+            <code>
+    class Turtle {
+        constructor(name,color) {
+            this.name = name;
+            let _color = color;
+            this.setColor = color =&#x3E; { return _color = color; }
+            this.getColor = () =&#x3E; _color;
+        }
+    }
+            </code>
+        </pre>
+        <p>
+            This is mind blowing and brilliant. Notice how the setColor is a method that is added to the Turtle
+             class using the “this” key. This setColor function since is declared inside the constructor function
+              has access to the scope of _color and can modify it. However, _color is not available outside of 
+              this function. This creates the implementation of a private variable. 
+        </p>
+        <h3>Inheritance</h3>
+        <p>
+            To inherit from another class use the ‘extend’ key. To call the constructor of the parent class use 
+            the Super() function, passing the necessary parameters for the parent class. 
+        </p>
+        <pre>
+            <code>
+    class Turtle {
+        constructor(name,color) {
+            this.name = name;
+            let _color = color;
+            this.setColor = color =&#x3E; { return _color = color; }
+            this.getColor = () =&#x3E; _color;
+        }
+    }
+            </code>
+        </pre>
+        <h3>Binding this</h3>
+        <p>
+            When using call back functions for a method in a class or object, the ‘this’ key is not bind 
+            to the object, but to the function that uses that call back.  To bind ‘this’ to the object,
+             use this function after the declaration of the call back. 
+        </p>
+        <pre>
+            <code>
+    superman.findFriends = function() {
+        this.friends.forEach(function(friend) {
+            console.log(&#x60;${friend.name} is friends with ${this.name}&#x60;);
+        }.bind(this);)
+    }
+            </code>
+        </pre>
+        <p>
+            This issue usialy happens when using the foreach loop, since it requires a call back function 
+            for each element in the collection. Another way to approach this is to use the ‘for of’ loop. 
+            This loop does not need a call back function so ‘this’ is always bound  to the object.  
+        </p>
+        <pre>
+            <code>
+    superman.findFriends = function() {
+        for(const friend of this.friends) {
+            console.log(&#x60;${friend.name} is friends with ${this.name}&#x60;);
+        };
+    }
+            </code>
+        </pre>
+        <h2>Modern JavaScript</h2>
+        <h3>MVC Framework for JavaScript</h3>
+        <h4><bold>Models</bold></h4>
+        <p>
+            Manage the data that is linked to the html components. The model’s methods are related to CRUD
+             functions.
+        </p>
+        <h4><bold>Views</bold></h4>
+        <p>Visual representation of the models. Also provide an interface that the users can use to 
+            interact with the application. 
+        </p>
+        <h4><bold>Controllers</bold></h4>
+        <p>
+            Link models and views together by communicating between them. 
+            They respond to events, which are usually inputs from a user (entering some data into a form, 
+            for example), process the information, then update the model and view accordingly.
+        </p>
+        <h3>MVC Framework for JavaScript</h3>
+        <h4><bold>Templates</bold></h4>
+        <p>
+            The templates are often stored in separate files or inside their own script tags, so they 
+            can be reused and quickly edited in one place if changes need to be made
+        </p>
+        <p>
+            Templating languages often have a mechanism for inserting dynamic data into the HTML.
+             These tend to fall into two camps: placing dynamic code inside curly braces (the &#x201C;mustache&#x201D; symbol)
+              or inside the special &#x3C;% %&#x3E; tags made popular by Embedded Ruby (ERB)
+        </p>
+        <h1>Week 4 Excercices</h1> 
+        <h2>Ninja Quiz</h2>
+        <p>The excercices on the reading are asking me to make updates on the code of a website</p>
+        <p>I got multiple errors working with webpack, I was only able to modularize the applicaiton.</p>
+        <p><a href="../ninja Website/quizNinja.html">Link to the Ninja Quiz website</a></p>
+        <br>
+        <br>
+        <a href='index.html' target='_self'><-Back to Week 3 Index</a>
+    </body>
+</html>
