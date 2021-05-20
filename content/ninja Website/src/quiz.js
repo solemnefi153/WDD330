@@ -1,5 +1,6 @@
 import { random, shuffle } from './utilities.js';
 
+
 const view = {
     //Find and save the html elements in this object
     score: document.querySelector('#score strong'),
@@ -53,6 +54,7 @@ const game = {
         this.secondsRemaining = 20;
         this.timer = setInterval( this.countdown , 1000 );
         this.ask();
+        console.log('start() invoked');
     },
     countdown() {
         game.secondsRemaining--;
@@ -62,7 +64,6 @@ const game = {
         }
     },
     ask(name){
-        console.log('ask() invoked');
         if(this.questions.length > 2) {
             shuffle(this.questions);
             this.question = this.questions.pop();
@@ -75,9 +76,9 @@ const game = {
         else {
             this.gameOver();
         }
+        console.log('ask() invoked');
     },
     check(event){
-        console.log('check(event) invoked')
         const response = event.target.textContent;
         const answer = this.question.realName;
         if(response === answer){
@@ -91,12 +92,13 @@ const game = {
             view.render(view.result,`Wrong! The correct answer was ${answer}`,{'class':'wrong'});
         }
         this.ask();
+        console.log('check(event) invoked')
     },
     gameOver(){
-        console.log('gameOver() invoked')
         view.render(view.info,`Game Over, you scored ${this.score} ➥ point${this.score !== 1 ? 's' : ''}`);
         view.teardown();
         clearInterval(this.timer);
+        console.log('gameOver() invoked')
     },
     hiScore(){
         const hi = localStorage.getItem('highScore') || 0;

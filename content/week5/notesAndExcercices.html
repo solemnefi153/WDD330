@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 5 Notes & Excercices</title>
+        <link rel="stylesheet" href="../styles/code.css">
+
+    </head>
+    <body>
+        <h1>Week 5 Notes</h1>
+        <p> 
+            When we write code in a development environment, we should write it in a way that when it fails, 
+            we can quickly identify that there is a bug. (Design the program so that if it fails, it fails loudly).  
+            In a production environment, issues should fail gracefully. 
+        </p> 
+        <h2>Strict Mode</h2>
+        <pre>
+            <code>
+    'use strict';
+            </code>
+        </pre>
+        <p>
+            We can put this link of code at the top of our JavaScript file so when the code is running, it will 
+            through errors for poorly styled code. This will increase errors but will help us ensure that the 
+            code is well written and thus avoids big hidden bugs.
+        </p>
+        <h2>Linting Tools</h2>
+        <p> 
+            Are pronging’s that can be installed and help check that the code is following certain coding 
+            conventions. 
+        </p>
+        <h2>Exception Handling</h2>
+        <h3>Try</h3>
+        <p>
+            We can use try to wrap code that might through an exception and that we do not want that exception 
+            to crash the application. 
+        </p>
+        <h3>Catch</h3>
+        <p>
+            “catch” is the “else” statement of “try”, if we think of “try” as the “if” statement. When we use 
+            “try” we are saying, if this code works then continue the program, else throw an exception.  
+            The exception that is thrown is caught by a catch statement. 
+        </p>
+        <h1>Test</h1>
+        <p>
+            A test is a function that checks if a piece of code is working in the way it should. 
+        </p>
+        <h2>Test-driven Development</h2>
+        <p>
+            Is the process of writing test before writing the actual code.  The life cycle of test-driven 
+            development is: 
+        </p>
+        <ol>
+            <li>Write tests (that initially fail)</li>
+            <li>Write code to pass the tests </li>
+            <li>Refactor the code </li>
+            <li>Test refactored code </li>
+            <li>Write more tests for new features </li>
+        </ol>
+        <h2>Testing Frameworks</h2>
+        <p>Jest is a popular testing framework developed by Facebook. It can be installed in in the computer using npm</p>
+
+        <pre>
+            <code>
+    //Example: 
+
+    function squareRoot(number) { 
+        'use strict'; 
+        if (number &lt; 0) { 
+            throw new RangeError(&quot;You can't find the square root of negative numbers&quot;) 
+        } 
+        return Math.sqrt(number); 
+    }; 
+
+    test('square root of 4 is 2', () =&gt; { 
+        expect(squareRoot(4)).toBe(2); 
+    });
+            </code>
+        </pre>
+        <p>
+        <h1>Week 5 Excercices</h1> 
+        <h2>Ninja Quiz</h2>
+        <p>Just added some basic tests to the ninja quiz project</p>
+        <p><a href="../ninja Website/quizNinja.html">Link to the Ninja Quiz website</a></p>
+        <br>
+        <br>
+        <a href='index.html' target='_self'><-Back to Week 5 Index</a>
+    </body>
+</html>
