@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 7 Notes & Excercices</title>
+        <link rel="stylesheet" href="../styles/code.css">
+
+    </head>
+    <body>
+        <h1>Week 7 Notes</h1>
+        <h2>Function properties and Methods </h2>
+        <p>
+            Functions have a  property called length witch indicates how many parameters it requires. 
+        </p>
+        <pre>
+            <code>
+    myfunciton.length;
+            </code>
+        </pre>
+        <p>
+            Functions also have a method call call(). This function requires an object as a parameter, 
+            which sets the value of “this” inside the function. If the function has additional parameters 
+            they are passed with the call() function after the object.
+        </p>
+        <pre>
+            <code>
+    myfunction.call(myobject, &ldquo;mi first required parameter&rdquo;, &ldquo;my second parameter&rdquo;);
+            </code>
+        </pre>
+        <p>
+            The apply function works the same expect that the parameters are passed in an array.
+        </p>
+        <pre>
+            <code>
+    myfunction.apply(myobject, [&ldquo;mi first required parameter&rdquo;, &ldquo;my second parameter&rdquo;]);
+            </code>
+        </pre>
+        <p>
+            You can also add properties as you add properties to any object. 
+        </p>
+        <pre>
+            <code>
+    myfunction.mycustomproperty = &ldquo;Description example&rdquo;;
+            </code>
+        </pre>
+        <h2>AJAX</h2>
+        <p>
+            Using request, and headers objects in a fetch request.
+        </p>
+        <pre>
+            <code>
+    const url = 'https:example.com/data'; 
+
+    const headers = new Headers({ 
+        'Content-Type': 'text/plain', 
+        'Accept-Charset' : 'utf-8', 
+        'Accept-Encoding':'gzip,deflate' 
+    }) 
+
+    const request = (url,{ headers: headers });
+    
+    fetch(request) 
+    .then( function(response) { 
+        if(response.ok) {
+            return response; 
+        } 
+        throw Error(response.statusText); 
+    })
+    .then( response =&gt; // do something with response ) 
+    .catch( error =&gt; console.log('There was an error!') )
+    
+            </code>
+        </pre>
+        <h1>Week 7 Excercices</h1> 
+        <p>This week I reviewed topics that I have already applied in my personal projects</p>
+        <p><a href="https://tourmeapp.herokuapp.com/">Link to my project that uses AJAX</a></p>
+        <br>
+        <br>
+        <a href='index.html' target='_self'><-Back to Week 7 Index</a>
+    </body>
+</html>
