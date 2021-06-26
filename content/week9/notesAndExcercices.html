@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 9 Notes & Excercices</title>
+        <link rel="stylesheet" href="../styles/code.css">
+
+    </head>
+    <body>
+        <h1>Week 9 Notes</h1>
+        <h2>The window object</h2>
+        <p>
+            Javascript enviroments have a global object. In the browser the “window” object is that global 
+            object that encapsulates all the global variables and methods. 
+        </p>
+        <h2>Browser object model (BOM) </h2>
+        <p>
+            Collection of properties and methods that contain information about the browser and the computer screen. 
+        </p>
+        <h2>Window Location Property</h2>
+        <p>
+            It contains information of the URL of the current page. Some properties of the location property are:
+            <ul>
+                <li>href</li>
+                <li>protocol</li>
+                <li>host</li>
+                <li>hostname</li>
+                <li>port</li>
+                <li>etc</li>
+            </ul> 
+        </p>
+        <h2>Window History</h2>
+        <p>
+            It gives access to information about any previously visited page.
+        </p>
+        <h2>Creating pop ups </h2>
+        <p>
+            We can use the window object to open a new window. This window could be displayed a s a pop 
+            up or as an additional tab in the browser. 
+        </p>
+        <pre>
+            <code>
+    const popup = window.open(&#x27;https://sitepoint.com&#x27;,&#x27;
+    SitePoint&#x27;,&#x27;width=400,height=400,resizable=yes&#x27;);
+                
+    popup.close();
+            </code>
+        </pre>
+        <h2>Screen information </h2>
+        <p>
+            The window.screen property has other properties that allow us to get information about the 
+            current screen. Some properties of the screen property are: height, width, availWidth, and 
+            colorDepth. 
+        </p>
+        <h2>Document Object</h2>
+        <p>
+            Each window object contains a document object. This object manages the html and text that 
+            is displayed in the browser. 
+        </p>
+        <h2>Cookies</h2>
+        <p>
+            Small files that are saved in the user’s computer. Sites can create this file in the user’s 
+            computer to save user preferences and some important data that can help the user navigate the
+             same site next time. Only the server that created the cookie can have access to that cookie 
+             from the user’s computer. 
+        </p>
+        <h1>HTML 5 APIs </h1>
+        <h2>“data-“ attribute</h2>
+        <p>
+            This attribute allows you to create custom attributes in html elements that can be used in 
+            JavaScript to make the pages more dynamic. 
+        </p>
+        <h2>Geolocation </h2>
+        <p>
+            Geolocation  Is the API used to get the geographical position of the device.  If the geolocation 
+            is available, it would be grabbed from the navigator object. 
+        </p>
+        <pre>
+            <code>
+    navigator.geolocation.getCurrentPosition(youAreHere);
+
+
+    function youAreHere(position) {
+        console.log(&#x60;Latitude: ${position.coords.latitude},
+        Longitude: ${position.coords.longitude}&#x60;); 
+    }   
+            </code>
+        </pre>
+        <br>
+        <br>
+        <a href='index.html' target='_self'><-Back to Week 9 Index</a>
+    </body>
+</html>
