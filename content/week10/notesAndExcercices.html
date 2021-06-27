@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 10 Notes & Excercices</title>
+        <link rel="stylesheet" href="../styles/code.css">
+
+    </head>
+    <body>
+        <h1>Week 10 Notes</h1>
+        <h2> Client-side validation </h2>
+        <h3>What is client-side validation? </h3>
+        <p>
+            Client-side validation uses the client (Browser) to check the date that has been entered in a 
+            form before the form is submitted. 
+        </p>
+        <p>
+            One advantage of the client-side validation is that it gives immediate feedback to the user 
+            about the validation of the data provided. Without client-side validation the data provided in 
+            the form could be sent with errors.
+        </p>
+        <p>
+            The two main problems with sending invalid data to the server is that if there is no server-side
+             validation, the data might cause errors in the server or it could result with unwanted behavior. 
+        </p>
+        <p>
+            Even if there is strong implementation of server-side validation, if the data sent to the server 
+            is invalid, it would take some time to send a response to the user, letting him/her know that the 
+            data was invalid. This delay affects the user experience and discourages users form staying in the 
+            website. 
+        </p>
+        <h3>Types of client-side validation</h3>
+        <p>
+            <b>Built in form validation: </b>Uses HTML5 features to perform validation. It is more efficient that 
+            JavaScript validation but less customizable. One great advantage of using built in validation is that 
+            it automatically checks the input and updates its state (valid / invalid). Then in our CSS we can create
+             a class for valid: invalid input fields that will update the UI base on the state of the input fields. 
+        </p>
+        <p>
+            <b>JavaScript validation:</b> The validation is performed using JavaScript. The advantage is that is 
+            very customizable, but you need to white the whole code to perform the validation. To use CSS classes 
+            for valid / invalid input fields, we have to manually set the state of the input through JavaScript after 
+            the validation is performed. 
+        </p>
+        <h3> Validating forms using JavaScript </h3>
+        <p>
+            One way that I use to approach front end validation is with the use of functions that search the DOM
+             and then grabs the value and evaluates if the input is valid or not. JavaScript has a constraint 
+             validation API which is a fancy way of saying that we can use JavaScript to find elements in the DOM
+              and then call some methods available for those elements to check if the input is valid, based on the
+               validation required and defined in the elements through the HTML. 
+        </p>
+        <p>Example:</p>
+        <pre>
+            <code>
+    On the HTML File 
+    &#x3C;form&#x3E;
+        &#x3C;label for=&#x22;mail&#x22;&#x3E;I would like you to provide me with an e-mail address:&#x3C;/label&#x3E;
+        &#x3C;input type=&#x22;email&#x22; id=&#x22;mail&#x22; name=&#x22;mail&#x22;&#x3E;
+        &#x3C;button&#x3E;Submit&#x3C;/button&#x3E;
+    &#x3C;/form&#x3E;
+    
+    
+    On the JavaScript File 
+    
+    const email = document.getElementById(&#x22;mail&#x22;);
+    
+    email.addEventListener(&#x22;input&#x22;, function (event) {
+        if (email.validity.typeMismatch) {
+        email.setCustomValidity(&#x22;I am expecting an e-mail address!&#x22;);
+        } else {
+        email.setCustomValidity(&#x22;&#x22;);
+        }
+    });
+            </code>
+        </pre>
+        <p>
+            I did not know that, so I will start using them more often on my front-end validation.
+        </p>
+        <h2>Using Fetch</h2>
+        <h3>The Fetch API </h3>
+        <p>
+            It provides an interface to make HTTP requests. It provides a global function fetch (). 
+            This fetch function received a URL address as a parameter and some other optional parameters 
+            to define the request type, headers, body of the request, etc. 
+        </p>
+        <p>
+            This is how I have used fetch() in previous projects
+        </p>
+        <pre>
+            <code>
+    // Search for the venues in Foursquare
+    const getVenues = async () =&#x3E; {
+        const city = city_input.val();
+        const category = category_input.val();
+        //We need the this to make an call to a Proxy api that uses private keys
+        const baseHref = window.location.href
+        const urlToFetch = &#x60;${baseHref}findPlaces?city=${city}&#x26;category=${category}&#x60;
+        const response = await fetch(urlToFetch);
+        const jsonResponse = await response.json();
+        if (response.ok) {
+            const venues = jsonResponse.response.groups[0].items.map(item =&#x3E; item.venue);
+            const center = jsonResponse.response.geocode.center
+            //Return all the venues and an array with the coordinates of the city 
+            return {venues: venues, center: [center.lat, center.lng]};
+        }
+        else{
+            throw jsonResponse;
+        }
+    } 
+            </code>
+        </pre>
+        <br>
+        <br>
+        <a href='index.html' target='_self'><-Back to Week 10 Index</a>
+    </body>
+</html>
