@@ -37,6 +37,10 @@ const links = [
     {
       label: "Week10",
       url: "content/week10/index.html"
+    }, 
+    {
+      label: "W330 Tour me app project ",
+      url: "https://tourmeapp.herokuapp.com/"
     }
 
 ]
